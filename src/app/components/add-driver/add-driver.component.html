@@ -1,0 +1,38 @@
+<h1 mat-dialog-title>Add Driver</h1>
+<form #form="ngForm" (submit)="onSubmit(form)">
+  <div mat-dialog-content>
+    <p>Enter Driver Details</p>
+    <mat-form-field appearance="outline">
+      <mat-label>Name</mat-label>
+      <input required matInput type="text" name="name" #name="ngModel" [(ngModel)]="driver.formData.name"
+        placeholder="Ex: james bond">
+    </mat-form-field>
+    <div *ngIf="name.invalid && name.touched">
+      <p>please enter name.</p>
+    </div>
+    <br>
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput type="email" name="email" #email="ngModel" [(ngModel)]="driver.formData.email"
+        placeholder="exmp123@exmp.xyz" required>
+    </mat-form-field>
+    <div *ngIf="email.invalid && email.touched">
+      <p>please enter email.</p>
+    </div>
+    <br>
+    <mat-form-field appearance="outline">
+      <mat-label>Phone</mat-label>
+      <input matInput type="number" name="phoneNumber" #phoneNumber="ngModel" [(ngModel)]="driver.formData.phoneNumber"
+        placeholder="+XX0123456789" required>
+    </mat-form-field>
+    <div *ngIf="phoneNumber.invalid && phoneNumber.touched">
+      <p>please enter phone.</p>
+    </div>
+
+  </div>
+  <div mat-dialog-actions class="action-btn">
+    <button mat-raised-button color="warn" type="reset" (click)="onClose()">Close</button>
+    <button [disabled]="form.invalid" mat-raised-button color="accent" type="submit">{{data ? 'Update': 'Add'}}</button>
+
+  </div>
+</form>
