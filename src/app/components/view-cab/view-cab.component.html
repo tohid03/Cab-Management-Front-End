@@ -25,7 +25,7 @@
                             <b>Driver Details</b>:
                             <button class="btn float-end" ngbTooltip="Assign Driver" mat-icon-button (click)="assignDriver(cab)"><mat-icon>create</mat-icon></button>
                             <button class="btn float-end" ngbTooltip="Remove Driver" mat-icon-button
-                                (click)="removeCabDriver(cab.id)"><mat-icon>delete</mat-icon></button>
+                                (click)="unassignedDriver(cab.id)"><mat-icon>delete</mat-icon></button>
                             <br>Name:{{cab.driver.name}} <br>
                             Driver Id:{{cab.driver.idNumber}}
                         </p>

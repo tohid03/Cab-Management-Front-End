@@ -38,9 +38,9 @@ export class CabService {
   }
 
   //Delete Cab Driver
-  deleteCabDriver(id:number){
-    const url = `${this.baseUrl}/cabs/removeCabDriver/${id}`;
-    return this.httpClient.put(url,null);
+  unassignedDriver(id:number){
+    const url = `${this.baseUrl}/cabs/unassignedDriver/${id}`;
+    return this.httpClient.delete(url);
   }
 
   //assign driver to cab

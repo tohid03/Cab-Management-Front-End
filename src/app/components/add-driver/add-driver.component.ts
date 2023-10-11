@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, NgForm } from '@angular/forms';
-import { DiverService } from 'src/app/services/driver/diver.service';
+import { DriverService } from 'src/app/services/driver/driver.service';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Inject } from '@angular/core';
 
@@ -12,7 +12,7 @@ import { Inject } from '@angular/core';
 })
 export class AddDriverComponent {
 
-  constructor(public driver: DiverService,
+  constructor(public driver: DriverService,
     public dialogBox: MatDialogRef<AddDriverComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any) { }
     id:number;
@@ -34,7 +34,7 @@ export class AddDriverComponent {
         name: '',
         email: '',
         phoneNumber: null,
-        idNumber: '',
+        idNumber: null,
         cab: null
       }
     } else { form.resetForm(); }

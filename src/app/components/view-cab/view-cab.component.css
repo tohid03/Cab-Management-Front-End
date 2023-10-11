@@ -1,0 +1,20 @@
+.card {
+    flex-direction: row;
+    border: 0;
+    box-shadow: 0 7px 7px rgba(0, 0, 0, 0.18);
+}
+
+.card img {
+    max-width: 40%;
+    /* margin: auto; */
+    padding: 0.5em;
+    border-radius: 0.7em;
+}
+.card:hover{
+    background-color: rgba(211, 16, 81, 0.651);
+}
+
+.button-container{
+    padding: 16px 16px 16px;
+    
+}

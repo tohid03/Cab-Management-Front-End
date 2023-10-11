@@ -19,10 +19,14 @@ import { AddDriverComponent } from './components/add-driver/add-driver.component
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatPaginatorModule} from '@angular/material/paginator';
-import { DiverService } from './services/driver/diver.service';
+import { DriverService } from './services/driver/driver.service';
 import { CabService } from './services/cab/cab.service';
 import { ViewCabComponent } from './components/view-cab/view-cab.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule,NgbTooltip } from '@ng-bootstrap/ng-bootstrap';
+import { AddCabComponent } from './components/add-cab/add-cab.component';
+import { AssignDriverComponent } from './components/assign-driver/assign-driver.component';
+import { MatTooltip } from '@angular/material/tooltip';
+import { AssignCabComponent } from './components/assign-cab/assign-cab.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +34,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     HomeComponent,
     ViewDriverComponent,
     AddDriverComponent,
-    ViewCabComponent
+    ViewCabComponent,
+    AddCabComponent,
+    AssignDriverComponent,
+    AssignCabComponent
   ],
   imports: [
     BrowserModule,
@@ -47,10 +54,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MatDialogModule,
     MatFormFieldModule,
     MatPaginatorModule,
-    NgbModule
+    NgbModule,
+    NgbTooltip
     
   ],
-  providers: [DiverService,CabService],
+  providers: [DriverService,CabService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

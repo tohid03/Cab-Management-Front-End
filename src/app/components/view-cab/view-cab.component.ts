@@ -47,9 +47,9 @@ export class ViewCabComponent {
       console.log(err);
     })
    }
-   removeCabDriver(id:number){
+   unassignedDriver(id:number){
     if(confirm("are you sure want to remove driver"))
-        this.cabService.deleteCabDriver(id).subscribe((res)=>{
+        this.cabService.unassignedDriver(id).subscribe((res)=>{
           this.getAllCabs();
           //console.log(res)
         },(err)=>{

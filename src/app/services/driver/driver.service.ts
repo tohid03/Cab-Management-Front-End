@@ -2,18 +2,17 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Driver } from 'src/app/models/driver';
 import { Observable } from 'rxjs';
-import { PageEvent } from '@angular/material/paginator';
 
 @Injectable({
   providedIn: 'root'
 })
-export class DiverService {
+export class DriverService {
   private baseUrl = 'http://localhost:8080/api/cab-management';
   formData: Driver;
   constructor(private httpClient: HttpClient) { }
   //Get Drivers
-  getDrivers(pageIndex:number,pageSize:number): Observable<Driver[]> {
-    const url = `${this.baseUrl}/drivers?pageNo=${pageIndex}&pageSize=${pageSize}`
+  getDrivers(): Observable<Driver[]> {
+    const url = `${this.baseUrl}/drivers`
     console.log(url)
     return this.httpClient.get<Driver[]>(url);
   }
@@ -30,6 +29,17 @@ export class DiverService {
   //delete Driver
   deleteDriver(id:number):Observable<any>{
     const url =`${this.baseUrl}/drivers/${id}`
+    return this.httpClient.delete(url);
+  }
+
+  //assign cab
+  assignedCab(driverId:number,cabId:number){
+    const url = `${this.baseUrl}/drivers/${driverId}/cab/${cabId}`
+    return this.httpClient.put(url,null)
+  }
+  //remove assigned cab 
+  unassignedCab(id:number){
+    const url = `${this.baseUrl}/drivers/unassignedDriver/${id}`;
     return this.httpClient.delete(url);
   }
 

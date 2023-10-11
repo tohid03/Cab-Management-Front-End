@@ -1,0 +1,28 @@
+<h1 mat-dialog-title>Add Cab</h1>
+<form #form="ngForm" (submit)="onSubmit(form)">
+  <div mat-dialog-content>
+    <p>Enter Cab Details</p>
+    <mat-form-field appearance="outline">
+      <mat-label>Model</mat-label>
+      <input required matInput type="text" name="cabModel" #cabModel="ngModel" [(ngModel)]="cabService.formData.cabModel"
+        placeholder="Ex:Suv">
+    </mat-form-field>
+    <div *ngIf="cabModel.invalid && cabModel.touched">
+      <p>please enter cab model.</p>
+    </div>
+    <br>
+    <mat-form-field appearance="outline">
+      <mat-label>Colour</mat-label>
+      <input matInput type="text" name="cabColour" #cabColour="ngModel" [(ngModel)]="cabService.formData.cabColour"
+        placeholder="red,blue,yellow etc.." required>
+    </mat-form-field>
+    <div *ngIf="cabColour.invalid && cabColour.touched">
+      <p>please enter cab colour.</p>
+    </div>
+  </div>
+  <div mat-dialog-actions class="action-btn">
+    <button mat-raised-button color="warn" type="reset" (click)="onClose()">Close</button>
+    <button [disabled]="form.invalid" mat-raised-button color="accent" type="submit">Add</button>
+
+  </div>
+</form>

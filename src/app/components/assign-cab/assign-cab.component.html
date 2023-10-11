@@ -1,0 +1,28 @@
+<h1 mat-dialog-title>Select Cab</h1>
+<div mat-dialog-content>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Cab Model</th>
+                <th scope="col">Cab Colour</th>
+                <th scope="col">Registration Number</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let cab of cabs">
+                <td>{{cab.cabModel}}</td>
+                <td>{{cab.cabColour}}</td>
+                <td>{{cab.cabRegistrationNumber}}</td>
+                <td *ngIf="(cab.driver); else selectCab">Assigned</td>
+                <ng-template #selectCab>
+                    <td><button class="btn btn-sm btn-primary"
+                            (click)="onSelectCab(this.driverId,cab.id)">Select</button></td>
+                </ng-template>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div mat-dialog-actions>
+
+</div>
